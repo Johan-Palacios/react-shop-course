@@ -1,7 +1,15 @@
-$base-color: #ff0000;
-$color: rgba(black, 0.88);
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --very-light-pink: #c7c7c7;
+  --text-input-field: #f7f7f7;
+  --hospital-green: #acd9b2;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+}
 
 body {
-  background-color: $base-color;
-  color: $color;
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
 }

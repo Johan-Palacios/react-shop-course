@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -38,7 +38,7 @@ module.exports = {
         test: /\.(png|jpg|svg|jpeg|webp)$/,
         type: "asset/resource",
         generator: {
-          filename: "assets/images/[name].[ext]",
+          filename: "assets/images/[name].svg",
         },
       },
       {
@@ -57,11 +57,4 @@ module.exports = {
       filename: "assets/[name].[contenthash].css",
     }),
   ],
-  devServer: {
-    static: path.join(__dirname, "dist"),
-    compress: true,
-    historyApiFallback: true,
-    port: 5500,
-    open: true,
-  },
 };
