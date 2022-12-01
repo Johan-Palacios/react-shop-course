@@ -17,6 +17,8 @@ module.exports = {
       "@components": path.resolve(__dirname, "src/components/"),
       "@containers": path.resolve(__dirname, "src/containers/"),
       "@images": path.resolve(__dirname, "src/assets/images/"),
+      "@pages": path.resolve(__dirname, "src/pages/"),
+      "@routes": path.resolve(__dirname, "src/routes/"),
     },
   },
   module: {
@@ -38,7 +40,7 @@ module.exports = {
         test: /\.(png|jpg|svg|jpeg|webp)$/,
         type: "asset/resource",
         generator: {
-          filename: "assets/images/[name].[ext]",
+          filename: "assets/images/[contenthash][ext]",
         },
       },
       {
@@ -54,7 +56,7 @@ module.exports = {
       filename: "index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "assets/[name].[contenthash].css",
+      filename: "assets/[name][contenthash].css",
     }),
   ],
   devServer: {
