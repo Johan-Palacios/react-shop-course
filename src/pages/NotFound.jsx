@@ -1,5 +1,5 @@
 import React from "react";
-import "@styles/RecoveryPassword.scss";
+import "@styles/PasswordRecovery.scss";
 import logo_yard_sale from "@images/logos/logo_yard_sale.svg";
 
 const NotFound = () => {
