@@ -1,9 +1,18 @@
 .MyOrder {
   width: 360px;
+  height: fit-content;
+  max-height: 380px;
+  overflow-y: auto;
   padding: 24px;
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  bottom: 0;
+  top: 60px;
+  background-color: var(--white);
+  border: 1px solid var(--very-light-pink);
+  border-radius: 6px;
+  animation: swipeLeft 0.26s ease;
 }
 .title-container {
   display: flex;
@@ -53,5 +62,14 @@
 @media (max-width: 640px) {
   .MyOrder {
     width: 100%;
+  }
+}
+
+@keyframes swipeLeft {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 360px;
   }
 }

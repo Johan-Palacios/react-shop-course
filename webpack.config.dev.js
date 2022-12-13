@@ -20,6 +20,7 @@ module.exports = {
       "@pages": path.resolve(__dirname, "src/pages/"),
       "@routes": path.resolve(__dirname, "src/routes/"),
       "@hooks": path.resolve(__dirname, "src/hooks/"),
+      "@context": path.resolve(__dirname, "src/context/"),
     },
   },
   module: {
