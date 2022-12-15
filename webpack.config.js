@@ -1,13 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].bundle.js",
+    filename: "[name].bundle.js",
     publicPath: "/",
   },
   resolve: {
@@ -17,6 +20,10 @@ module.exports = {
       "@components": path.resolve(__dirname, "src/components/"),
       "@containers": path.resolve(__dirname, "src/containers/"),
       "@images": path.resolve(__dirname, "src/assets/images/"),
+      "@pages": path.resolve(__dirname, "src/pages/"),
+      "@routes": path.resolve(__dirname, "src/routes/"),
+      "@hooks": path.resolve(__dirname, "src/hooks/"),
+      "@context": path.resolve(__dirname, "src/context/"),
     },
   },
   module: {
@@ -36,9 +43,9 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|svg|jpeg|webp)$/,
-        type: "asset/resource",
+        type: "asset",
         generator: {
-          filename: "assets/images/[name].svg",
+          filename: "assets/images/[contenthash][ext]",
         },
       },
       {
@@ -56,5 +63,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "assets/[name].[contenthash].css",
     }),
+    new CleanWebpackPlugin(),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+  },
 };
