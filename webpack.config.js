@@ -42,10 +42,10 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|svg|jpeg|webp)$/,
-        type: "asset",
+        test: /\.(svg|png|jpg|gif)$/i,
+        type: "asset/resource",
         generator: {
-          filename: "assets/images/[contenthash][ext]",
+          filename: "assets/images/[hash][ext][query]",
         },
       },
       {
@@ -61,12 +61,17 @@ module.exports = {
       filename: "index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "assets/[name].[contenthash].css",
+      filename: "[name].[contenthash].css",
     }),
     new CleanWebpackPlugin(),
   ],
   optimization: {
     minimize: true,
-    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin({
+        extractComments: true,
+      }),
+    ],
   },
 };
