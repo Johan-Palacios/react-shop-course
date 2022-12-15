@@ -68,10 +68,11 @@ const router = createBrowserRouter([
 ]);
 const App = () => {
   const initialState = useInitialState();
+  const basenamerouter = "/react-shop-course";
   return (
     <AppContext.Provider value={initialState}>
       <Layout>
-        <RouterProvider router={router}/>
+        <RouterProvider router={router} basename={basenamerouter} />
       </Layout>
     </AppContext.Provider>
   );
