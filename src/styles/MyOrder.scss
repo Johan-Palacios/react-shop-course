@@ -1,11 +1,11 @@
 .MyOrder {
   width: 360px;
+  position: fixed;
   height: fit-content;
   max-height: 380px;
   overflow-y: auto;
   padding: 24px;
   box-sizing: border-box;
-  position: absolute;
   right: 0;
   bottom: 0;
   top: 60px;
