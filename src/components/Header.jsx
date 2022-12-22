@@ -48,12 +48,25 @@ const Header = () => {
       </div>
       <div className="navbar-right">
         <ul>
-          <li className="navbar-email" onClick={() => setToggle(!toggle)}>
+          <li
+            className="navbar-email"
+            onClick={() => {
+              setToggle(!toggle);
+              if (toggleOrders === true) {
+                setToggleOrders(!toggleOrders);
+              }
+            }}
+          >
             platzi@example.com
           </li>
           <li
             className="navbar-shopping-cart"
-            onClick={() => setToggleOrders(!toggleOrders)}
+            onClick={() => {
+              setToggleOrders(!toggleOrders);
+              if (toggle === true) {
+                setToggle(!toggle);
+              }
+            }}
           >
             <img src={icon_shopping_cart} alt="shopping cart" />
             {stateLongNumber(state.cart.length)}
@@ -61,7 +74,12 @@ const Header = () => {
         </ul>
       </div>
       {toggle && <Menu />}
-      {toggleOrders && <MyOrder toggleOrders={toggleOrders} setToggleOrders={setToggleOrders} />}
+      {toggleOrders && (
+        <MyOrder
+          toggleOrders={toggleOrders}
+          setToggleOrders={setToggleOrders}
+        />
+      )}
     </nav>
   );
 };
