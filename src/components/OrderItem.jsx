@@ -20,6 +20,7 @@ const OrderItem = (props) => {
         src={icon_close}
         alt="close"
         onClick={() => handleRemove(indexValue)}
+        className="OrderItem__close"
       />
     </div>
   );
