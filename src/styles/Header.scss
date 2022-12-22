@@ -11,6 +11,7 @@ nav {
 }
 .menu {
   display: none;
+  cursor: pointer;
 }
 
 .nav-logo {
@@ -48,9 +49,11 @@ nav {
   color: var(--very-light-pink);
   font-size: var(--sm);
   margin-right: 12px;
+  cursor: pointer;
 }
 .navbar-shopping-cart {
   position: relative;
+  cursor: pointer;
 }
 .navbar-shopping-cart div {
   width: 16px;
