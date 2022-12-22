@@ -4,7 +4,7 @@ import AppContext from "@context/AppContext";
 import "@styles/MyOrder.scss";
 import icon_arrow from "@images/icons/flechita.svg";
 
-const MyOrder = () => {
+const MyOrder = ({setToggleOrders, toggleOrders}) => {
   const { state } = useContext(AppContext);
   const sumTotal = () => {
     const reducer = (amount, currentValue) => amount + currentValue.price;
@@ -14,7 +14,9 @@ const MyOrder = () => {
   return (
     <aside className="MyOrder">
       <div className="title-container">
-        <img src={icon_arrow} alt="arrow" />
+        <img src={icon_arrow} alt="arrow" onClick={() => {
+          setToggleOrders(!toggleOrders)
+        } } />
         <p className="title">My order</p>
       </div>
       <div className="my-order-content">
